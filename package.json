@@ -1,0 +1,10 @@
+{
+  "name"          : "monadjs",
+  "description"   : "Monad Library for JavaScript.",
+  "keywords"      : ["monads", "functional", "javascript", "server", "client", "browser"],
+  "author"        : "Santosh Rajan <santrajan@gmail.com>",
+  "repository"    : {"type": "git", "url": "git://github.com/santoshrajan/monadjs.git"},
+  "main"          : "monad.js",
+  "version"       : "0.0.1",
+  "license"       : "MIT"
+}
