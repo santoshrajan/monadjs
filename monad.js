@@ -1,4 +1,13 @@
+/*
+    monadjs
+    Monad Library for JavaScript
+    Copyright (c) 2013 Santosh Rajan
+    License - MIT - https://github.com/santoshrajan/monadjs/blob/master/LICENSE
+*/
+
 (function(exports){
+
+    exports.version = "0.0.2";
 
     exports.doMonad = function(monad) {
         var args = arguments, scope = {};
@@ -17,6 +26,28 @@
         return iterator(1);
     }
 
+    exports.identityMonad = {
+        mBind: function(mValue, mFunction) {
+            return mFunction(mValue);
+        },
+        mResult: function(value) {
+            return value;
+        }
+    }
+
+    exports.maybeMonad = {
+        mBind: function(mValue, mFunction) {
+            if (mValue === this.mZero)
+                return this.mZero;
+            else
+                return mFunction(mValue);
+        },
+        mResult: function(value) {
+            return value;
+        },
+        mZero: null
+    }
+
     exports.arrayMonad = {
         mBind: function(mValue, mFunc) {
             var accum = [];
@@ -30,4 +61,4 @@
         }
     }
 
-})(typeof exports === 'undefined'? this['monadjs']={}: exports);
+})(typeof exports === 'undefined'? this['monads']={}: exports);
