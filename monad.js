@@ -7,7 +7,7 @@
 
 (function(exports){
 
-    exports.version = "0.0.2";
+    exports.version = "0.0.3";
 
     exports.doMonad = function(monad) {
         var args = arguments, scope = {};
@@ -24,7 +24,7 @@
             });
         }
         return iterator(1);
-    }
+    };
 
     exports.identityMonad = {
         mBind: function(mValue, mFunction) {
@@ -33,7 +33,7 @@
         mResult: function(value) {
             return value;
         }
-    }
+    };
 
     exports.maybeMonad = {
         mBind: function(mValue, mFunction) {
@@ -46,7 +46,7 @@
             return value;
         },
         mZero: null
-    }
+    };
 
     exports.arrayMonad = {
         mBind: function(mValue, mFunc) {
@@ -59,6 +59,22 @@
         mResult: function(value) {
             return [value];
         }
-    }
+    };
 
-})(typeof exports === 'undefined'? this['monads']={}: exports);
+    exports.stateMonad = {
+        mBind: function(mValue, mFunc) {
+            return function(state) {
+                var compute = mValue(state);
+                var value = compute[0];
+                var newState = compute[1];
+                return mFunc(value)(newState);
+            };
+        },
+        mResult: function(value) {
+            return function(state) {
+                return [value, state];
+            };
+        }
+    };
+
+})(typeof exports === 'undefined'? this.monads={}: exports);
