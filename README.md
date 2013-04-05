@@ -11,6 +11,8 @@
 #### Browser
 Just include "monad.js" script file. The global variable `monads` is made available to you.
 
+### Docs
+
 Supports identity, maybe, array, state, continuation monads.
 
 See examples folder.
