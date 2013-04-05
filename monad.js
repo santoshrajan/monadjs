@@ -7,7 +7,7 @@
 
 (function(exports){
 
-    exports.version = "0.0.3";
+    exports.version = "0.0.4";
 
     exports.doMonad = function(monad) {
         var args = arguments, scope = {};
@@ -73,6 +73,21 @@
         mResult: function(value) {
             return function(state) {
                 return [value, state];
+            };
+        }
+    };
+
+    exports.continuationMonad = {
+        mBind: function(mValue, mFunc) {
+            return function(continuation) {
+                return mValue(function(value) {
+                    return mFunc(value)(continuation);
+                });
+            };
+        },
+        mResult: function(value) {
+            return function(continuation) {
+                return continuation(value);
             };
         }
     };
