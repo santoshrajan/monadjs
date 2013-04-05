@@ -2,6 +2,9 @@
 
 ## Monad Library for JavaScript
 
+### Install
+    $ npm install monadjs
+
 ### Usage
 #### Nodejs
     var monads = require("monadjs");
