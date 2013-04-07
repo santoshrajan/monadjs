@@ -13,7 +13,13 @@ Just include "monad.js" script file. The global variable `monads` is made availa
 
 ### Docs
 
-Supports identity, maybe, array, state, continuation monads.
+Supports
+* Identity Monad
+* Maybe Monad
+* Array Monad
+* State Monad
+* Continuation Monad
+* Parser Monad
 
 See examples folder.
 

@@ -7,7 +7,7 @@
 
 (function(exports){
 
-    exports.version = "0.0.4";
+    exports.version = "0.0.5";
 
     exports.doMonad = function(monad) {
         var args = arguments, scope = {};
@@ -88,6 +88,39 @@
         mResult: function(value) {
             return function(continuation) {
                 return continuation(value);
+            };
+        }
+    };
+
+    exports.parserMonad = {
+        mBind: function(parser, mFunc) {
+            return function(str) {
+                var result = parser(str);
+                if (result === null) {
+                    return null;
+                } else {
+                    return mFunc(result[0])(result[1]);
+                }
+            };
+        },
+        mResult: function(value) {
+            return function(str) {
+                return [value, str];
+            };
+        },
+        mZero: function(str) {
+            return null;
+        },
+        mPlus: function() {
+            var parsers = Array.prototype.slice.call(arguments);
+            return function(str) {
+                for (var i = 0, l = parsers.length; i < l; i++) {
+                    var result = parsers[i](str);
+                    if (result !== null) {
+                        return result;
+                    }
+                }
+                return null;
             };
         }
     };
