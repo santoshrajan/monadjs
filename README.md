@@ -30,3 +30,6 @@ Read these blog posts for more info on this library.
 
 [The monad laws and state monad in JavaScript](http://functionaljavascript.blogspot.in/2013/04/the-monad-laws-and-state-monad-in.html)
 
+[The Promise Monad in JavaScript](http://functionaljavascript.blogspot.in/2013/04/the-promise-monad-in-javascript.html)
+
+
