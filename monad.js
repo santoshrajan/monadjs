@@ -7,7 +7,7 @@
 
 (function(exports){
 
-    exports.version = "0.0.5";
+    exports.version = "0.0.6";
 
     exports.doMonad = function(monad) {
         var args = arguments, scope = {};
@@ -123,6 +123,18 @@
                 return null;
             };
         }
+    };
+
+    exports.promiseMonad = {
+        mBind: function(mValue, mFunction) {
+            mValue(function(value) {
+                if (value !== null) {
+                    mFunction(value);
+                }
+            });
+        },
+        mResult: function(value) {},
+        mZero: null
     };
 
 })(typeof exports === 'undefined'? this.monads={}: exports);

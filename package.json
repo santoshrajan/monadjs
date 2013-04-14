@@ -5,6 +5,6 @@
   "author"        : "Santosh Rajan <santrajan@gmail.com>",
   "repository"    : {"type": "git", "url": "git://github.com/santoshrajan/monadjs.git"},
   "main"          : "monad.js",
-  "version"       : "0.0.5",
+  "version"       : "0.0.6",
   "license"       : "MIT"
 }
