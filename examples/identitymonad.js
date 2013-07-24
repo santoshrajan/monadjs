@@ -1,19 +1,7 @@
-var monads = require("monadjs");
+var monads = require("monadjs")
 
-var result = monads.doMonad(monads.identityMonad,
-    "a", function(scope) {
-             return 2;
-         },
-    "b", function(scope) {
-             with (scope) {
-                 return a * 3;
-             }
-         },
-    function(scope) {
-        with(scope) {
-            return a + b;
-        }
-    }
-);
+var result = monads.do(monads.identity, [1, 2], function(a, b) {
+    return a + b
+})
 
 console.log(result);

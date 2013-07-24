@@ -9,7 +9,7 @@
 #### Nodejs
     var monads = require("monadjs");
 #### Browser
-Just include "monad.js" script file. The global variable `monads` is made available to you.
+Use [browserify](http://browserify.org/) to use in browser.
 
 ### Docs
 
@@ -20,16 +20,6 @@ Just include "monad.js" script file. The global variable `monads` is made availa
 * State Monad
 * Continuation Monad
 * Parser Monad
-* Promise Monad
 
 See examples folder.
-
-Read these blog posts for more info on this library.
-
-[Implementing Monads in JavaScript](http://functionaljavascript.blogspot.in/2013/03/implementing-monads-in-javascript.html)
-
-[The monad laws and state monad in JavaScript](http://functionaljavascript.blogspot.in/2013/04/the-monad-laws-and-state-monad-in.html)
-
-[The Promise Monad in JavaScript](http://functionaljavascript.blogspot.in/2013/04/the-promise-monad-in-javascript.html)
-
 

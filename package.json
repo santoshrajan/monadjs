@@ -4,7 +4,7 @@
   "keywords"      : ["monads", "functional", "javascript", "server", "client", "browser"],
   "author"        : "Santosh Rajan <santrajan@gmail.com>",
   "repository"    : {"type": "git", "url": "git://github.com/santoshrajan/monadjs.git"},
-  "main"          : "monad.js",
-  "version"       : "0.0.6",
+  "main"          : "lib/monadjs.js",
+  "version"       : "0.1.0",
   "license"       : "MIT"
 }
